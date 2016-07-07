@@ -36,15 +36,16 @@ $admin='';
 if (user_own_aiken_file_id($USER->id,$fileid) || $admin){
 	
 	$query = "Select * from mdl_tool_aiken_question where fileid = ?";
-	$records = $DB->get_records_sql($query,array($fileid));
-	foreach($records as $row){
-	 	
-	 	$data[] = $row;
-	 
-	 }
-	
-	 print json_encode($data);
-
+	$records = $DB->get_records_sql($query, array($fileid));
+	if($records){
+		foreach($records as $row){
+			
+			$data[] = $row;
+		 
+		 }
+		
+		 print json_encode($data);
+	}
 }
 else{
 	print_error("noviewpermission",'tool_aikengen');	

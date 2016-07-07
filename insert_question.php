@@ -39,6 +39,7 @@ $question = $data->full_questiontext;
 $fileid = intval($data->filename);
 $admin ='';	
 
+/*
  if(!confirm_sesskey($sesskey)){
 			 
 				$PAGE->set_title($SITE->fullname);
@@ -48,6 +49,7 @@ $admin ='';
 				echo $OUTPUT->footer();
 				die;
 		 }
+		 */
 if (user_own_aiken_file_id($USER->id,$fileid) || $admin){
 	
 	if ($operation=='Insert'){
@@ -62,7 +64,7 @@ if (user_own_aiken_file_id($USER->id,$fileid) || $admin){
 		$record->answer =  $data->correct_answer;
 		$record->fileid =  $fileid;
 		
-		$record_entered = $DB->insert_record('c_aiken_question', $record);
+		$record_entered = $DB->insert_record('tool_aiken_question', $record);
 	}
 	elseif($operation=='Update'){
 	
@@ -76,7 +78,7 @@ if (user_own_aiken_file_id($USER->id,$fileid) || $admin){
 		$record->option_e =  $data->option_e;
 		$record->answer   =  $data->correct_answer;
 		$record->fileid   =  $fileid;
-		$DB->update_record('c_aiken_question', $record);
+		$DB->update_record('tool_aiken_question', $record);
 	
 	
 	}

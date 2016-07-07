@@ -31,12 +31,13 @@ require_login();
 global $DB;
 $data = json_decode(file_get_contents("php://input"));
 $id = $data->id;
+$fileid = $data->fileid;
 
 
 
-if (user_own_aiken_question_id($USER->id,$id)){
+if (user_own_aiken_question_id($USER->id,$fileid,$id)){
 	
-	 $DB->delete_records('c_aiken_question', array ('id' => $id)) ;
+	 $DB->delete_records('tool_aiken_question', array ('id' => $id)) ;
  }
 
 

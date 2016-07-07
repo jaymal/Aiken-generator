@@ -41,7 +41,8 @@ if(!$fileid){
 if (user_own_aiken_file_id($USER->id,$fileid)){
 
 	$filename = "aiken_".$fileid;
-	$records = $DB->get_records('c_aiken_question', array('fileid'=>$fileid));
+	$records = $DB->get_records('tool_aiken_question', array('fileid'=>$fileid));
+	$line='';
 	foreach($records as $row){
 	 	
 	 	$line .= $row->question."\n";
@@ -61,8 +62,7 @@ else{
 	//redirect(new moodle_url($PAGE->url)); //shouldnt happen though
 
 }
-?>
-<?
+
 // Send file headers
 /*
  $handle = fopen("aikenfile.txt", "w");
@@ -79,11 +79,10 @@ else{
     exit;
 */
 
+
 header("Content-type: text/plain; charset=utf-8");
-header("Content-Disposition: attachment;filename={$filename}.txt");
+header("Content-Disposition: attachment;filename=$filename.txt");
 header("Content-Transfer-Encoding: binary"); 
 header('Pragma: no-cache'); 
 header('Expires: 0');
-echo "$line";
-
-?>
+echo $line;

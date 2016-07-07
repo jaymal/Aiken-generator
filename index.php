@@ -60,7 +60,7 @@ if ($fileform->is_cancelled()) {
     	redirect($returnurl);
  
 } else if ($fromform = $fileform->get_data()) {
-		 
+	
 		/* if(!confirm_sesskey($sesskey)){
 			 
 				$PAGE->set_title($SITE->fullname);
@@ -70,18 +70,18 @@ if ($fileform->is_cancelled()) {
 				echo $OUTPUT->footer();
 				die;
 		 }*/
-    	$record = new stdClass();
+    $record = new stdClass();
 	$record->userid  = $USER->id;
 	$record->filename =  $fromform->filename;
-	$record_entered = $DB->insert_record('c_aiken_filename', $record);
+	$record_entered = $DB->insert_record('tool_aiken_filename', $record);
 	if($record_entered){
-	    	$nexturl =  new moodle_url('view.php');
-	    	redirect($nexturl);
-    	}else{
-    		echo "Unable to submit form";
-    		exit;
+	    $nexturl =  new moodle_url('view.php');
+	    redirect($nexturl);
+    }else{
+    	echo "Unable to submit form";
+    	exit;
     	
-    	}
+    }
     	
 }
 echo $OUTPUT->header();

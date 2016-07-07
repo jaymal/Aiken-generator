@@ -47,6 +47,23 @@ function user_own_aiken_file_id($userid,$fileid) {
     	return $own ;
 }
 
+function user_own_aiken_question_id($userid,$fileid,$questionid) {
+	global $DB;
+	
+	$ownfile = $DB->record_exists('tool_aiken_filename', array('userid'=>$userid,'id'=>$fileid));
+
+	$ownquestion = $DB->record_exists('tool_aiken_question', array('id'=>$questionid,'fileid'=>$fileid));
+	
+	$own = false;
+	if($ownfile && $ownquestion){
+		$own = true ;
+	}
+	
+    return $own;	
+}
+
+
+
 function get_aiken_file_name($userid) {
 	global $DB;
 	$result = $DB->get_records_menu('tool_aiken_filename', array('userid'=>$userid),null,'id,filename');

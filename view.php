@@ -59,6 +59,7 @@ if (!user_has_aiken_file_name($USER->id)){
 
 
 echo $OUTPUT->header();
+
 ?>
 <div class="container">
 	<div class="row">
@@ -70,7 +71,7 @@ echo $OUTPUT->header();
 				<?php
 				//$payform = new entry_form('action',null_aray(form parameters),'method','target','ng-submit="insertdata()"');
 
-				$qform = new entry_form(null,null,null,null,'ng-submit="insertdata()"');
+				$qform = new entry_form(null,null,null,null,'ng-submit="insertdata()",name="entryForm"');
 				$toform='';
 				$qform->set_data($toform);
 				$qform->display();
@@ -93,7 +94,7 @@ echo $OUTPUT->header();
 					<table class="generaltable">
 					   <tbody>
 						<tr ng-repeat = "item in data">
-								<td class="cell c{{$index}}" style="">{{item.id}} - {{item.question}} <br>
+								<td class="cell c{{$index}}" style="">{{$index+1}} - {{item.question}} <br>
 									A: {{item.option_a}}<br>
 									B: {{item.option_b}}<br>
 									C: {{item.option_c}}<br>
@@ -102,7 +103,7 @@ echo $OUTPUT->header();
 									Answer: {{item.answer}}<br><br>
 									<button ng-click="deleteQuestion(item.id,item.fileid)">Delete</button>
 									<button ng-click="editQuestion(item.id,item.question,item.option_a,item.option_b,item.option_c,
-									item.option_d,item.option_e,filename)">Edit</button>
+									item.option_d,item.option_e,item.answer,item.fileid)">Edit</button>
 								</td>
 						</tr>
 					   </tbody>
