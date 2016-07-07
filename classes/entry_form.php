@@ -118,7 +118,7 @@ class viewfile_drop_menu_form extends moodleform {
     //Add elements to form
     public function definition() {
         global $CFG,$DB,$USER;
-		mform = $this->_form; // Don't forget the underscore! 			   	      
+		$mform = $this->_form; // Don't forget the underscore! 			   	      
 		$filenames = get_aiken_file_name($USER->id);
 		$default_file[''] =  get_string('choosefiletoview',TOOL_AIKENGEN_LANG);
 
