@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="admin/tool/aikengen/db" VERSION="20120122" COMMENT="XMLDB file for Moodle admin/tool/aikengen"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="tool_aiken_question" COMMENT="Contains the question and answer texts to be generated as a aiken file">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="question" TYPE="char" LENGTH="1333" NOTNULL="true" SEQUENCE="false" COMMENT="The question text itself"/>
+        <FIELD NAME="option_a" TYPE="char" LENGTH="1000" NOTNULL="true" SEQUENCE="false" COMMENT="Option A"/>
+        <FIELD NAME="option_b" TYPE="char" LENGTH="1000" NOTNULL="true" SEQUENCE="false" COMMENT="Option B"/>
+        <FIELD NAME="option_c" TYPE="char" LENGTH="1000" NOTNULL="true" SEQUENCE="false" COMMENT="Option C"/>
+        <FIELD NAME="option_d" TYPE="char" LENGTH="1000" NOTNULL="true" SEQUENCE="false" COMMENT="Option D"/>
+        <FIELD NAME="option_e" TYPE="char" LENGTH="1000" NOTNULL="true" SEQUENCE="false" COMMENT="Option E"/>
+        <FIELD NAME="answer"   TYPE="char" LENGTH="2" 	 NOTNULL="true" SEQUENCE="false" COMMENT="Choice of Answer"/>
+        <FIELD NAME="fileid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="fk_component" TYPE="foreign" FIELDS="fileid" REFTABLE="tool_aiken_filename" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="uq_aikengen_file" UNIQUE="false" FIELDS="fileid" COMMENT="an index on fileid field"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="tool_aiken_filename" COMMENT="Contains the filename associated with each user">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false" COMMENT="The Moodle user id of the question creator"/>
+        <FIELD NAME="filename" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="The filename or name given to each collection of questions probably grouped by course"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>

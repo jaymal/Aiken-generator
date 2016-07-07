@@ -1,0 +1,16 @@
+[03-Jul-2016 16:05:07 Asia/Qatar] Default exception handler: Field "fileid" does not exist in table "c_aiken_filename" Debug: 
+Error code: ddlfieldnotexist
+* line 597 of /lib/dml/moodle_database.php: dml_exception thrown
+* line 1779 of /lib/dml/moodle_database.php: call to moodle_database->where_clause()
+* line 25 of /local/aikengen/locallib.php: call to moodle_database->record_exists()
+* line 14 of /local/aikengen/download_question.php: call to user_own_aiken_file_id()
+
+[03-Jul-2016 16:06:12 Asia/Qatar] PHP Notice:  Undefined variable: line in /home/islamico/public_html/campus/local/aikengen/download_question.php on line 20
+[03-Jul-2016 16:06:12 Asia/Qatar] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/islamico/public_html/campus/local/aikengen/download_question.php:20) in /home/islamico/public_html/campus/local/aikengen/download_question.php on line 42
+[03-Jul-2016 16:06:12 Asia/Qatar] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/islamico/public_html/campus/local/aikengen/download_question.php:20) in /home/islamico/public_html/campus/local/aikengen/download_question.php on line 43
+[03-Jul-2016 16:06:12 Asia/Qatar] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/islamico/public_html/campus/local/aikengen/download_question.php:20) in /home/islamico/public_html/campus/local/aikengen/download_question.php on line 44
+[03-Jul-2016 16:06:12 Asia/Qatar] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/islamico/public_html/campus/local/aikengen/download_question.php:20) in /home/islamico/public_html/campus/local/aikengen/download_question.php on line 45
+[03-Jul-2016 16:06:12 Asia/Qatar] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/islamico/public_html/campus/local/aikengen/download_question.php:20) in /home/islamico/public_html/campus/local/aikengen/download_question.php on line 46
+[03-Jul-2016 13:25:32 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/islamico/public_html/campus/local/aikengen/insert_question.php on line 19
+[03-Jul-2016 13:26:58 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/islamico/public_html/campus/local/aikengen/insert_question.php on line 19
+[03-Jul-2016 13:27:45 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/islamico/public_html/campus/local/aikengen/insert_question.php on line 19

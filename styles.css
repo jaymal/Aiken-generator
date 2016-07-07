@@ -1,0 +1,68 @@
+.path-admin-tool-aikengen .fcontainer {
+	width:100%;
+	padding:10px;
+	overflow: hidden;
+}
+.path-admin-tool-aikengen .form-item .form-label, .mform .fitem div.fitemtitle {
+	width: 100px;
+	 
+}
+.path-admin-tool-aikengen .felement {
+	margin-left:110px !important;
+	 
+}
+textarea[cols], input[size] {
+    width: 400px;
+}
+
+.path-admin-tool-aikengen .live-update {
+	width :100%; 
+	background-color: #fffde9;
+	height :400px;
+	overflow: scroll;
+	padding:15px;
+	border:1px solid #c5bda1
+}
+
+/*!
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * bootstrap things
+ */
+
+
+.path-admin-tool-aikengen .container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.path-admin-tool-aikengen .row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.path-admin-tool-aikengen .col-md-6, .col-md-8, .col-md-4, .col-md-12, .col-md-10 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+     
+
+}
+@media (min-width: 992px) {
+ .path-admin-tool-aikengen .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    float: left;
+  }
+  .path-admin-tool-aikengen .col-md-12 {
+    width: 100%;
+  }
+ .path-admin-tool-aikengen .col-md-6 {
+    width: 50%;
+  }
+  .path-admin-tool-aikengen  .col-md-8 {
+    width: 66.66666667%;
+  }
+ .path-admin-tool-aikengen  .col-md-4 {
+    width: 33.33333333%;
+  }
+} 
