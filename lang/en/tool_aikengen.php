@@ -47,3 +47,8 @@ $string['option_c'] = 'Option C';
 $string['option_d'] = 'Option D';
 $string['option_e'] = 'Option E';
 $string['pluginname'] = 'Aiken Generator';
+$string['noinsertupdatepermission'] = 'You do not have the permission to do that- Add questions';
+$string['noviewpermission'] = 'You do not have the permission to do that - View questions';
+$string['nodownloadpermission'] = 'You do not have the permission to do that - Download file';
+$string['chooseafilenamefordownload'] = 'Please choose the file name you wish to download';
+

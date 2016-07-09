@@ -28,6 +28,7 @@
 require_once('../../../config.php');
 require_once('locallib.php');
 require_login();
+require_capability('tool/aikengen:view', context_system::instance());
 global $DB;
 $data = json_decode(file_get_contents("php://input"));
 $id = $data->id;

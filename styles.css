@@ -1,9 +1,14 @@
+.path-admin-tool-aikenge div{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 .path-admin-tool-aikengen .fcontainer {
 	width:100%;
 	padding:10px;
 	overflow: hidden;
 }
-.path-admin-tool-aikengen .form-item .form-label, .mform .fitem div.fitemtitle {
+.path-admin-tool-aikengen .form-item .form-label,.path-admin-tool-aikengen .mform .fitem div.fitemtitle {
 	width: 100px;
 	 
 }
@@ -21,7 +26,10 @@ textarea[cols], input[size] {
 	height :400px;
 	overflow: scroll;
 	padding:15px;
-	border:1px solid #c5bda1
+	border:1px solid #c5bda1;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
 }
 
 /*!
@@ -41,20 +49,28 @@ textarea[cols], input[size] {
   margin-left: -15px;
 }
 
-.path-admin-tool-aikengen .col-md-6, .col-md-8, .col-md-4, .col-md-12, .col-md-10 {
+.path-admin-tool-aikengen .col-md-6,.path-admin-tool-aikengen .col-md-8,.path-admin-tool-aikengen .col-md-4,.path-admin-tool-aikengen .col-md-12,.path-admin-tool-aikengen .col-md-10 {
   position: relative;
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
-     
+  float:left; 
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;  
 
 }
+
 @media (min-width: 992px) {
- .path-admin-tool-aikengen .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+ .path-admin-tool-aikengen .col-md-1,.path-admin-tool-aikengen .col-md-2,.path-admin-tool-aikengen .col-md-3,.path-admin-tool-aikengen .col-md-4,.path-admin-tool-aikengen .col-md-5,.path-admin-tool-aikengen .col-md-6,.path-admin-tool-aikengen .col-md-7,.path-admin-tool-aikengen .col-md-8,.path-admin-tool-aikengen .col-md-9,.path-admin-tool-aikengen .col-md-10.path-admin-tool-aikengen, .col-md-11,.path-admin-tool-aikengen .col-md-12 {
     float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
   }
   .path-admin-tool-aikengen .col-md-12 {
     width: 100%;
+    
   }
  .path-admin-tool-aikengen .col-md-6 {
     width: 50%;
@@ -65,4 +81,4 @@ textarea[cols], input[size] {
  .path-admin-tool-aikengen  .col-md-4 {
     width: 33.33333333%;
   }
-} 
+}

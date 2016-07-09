@@ -15,22 +15,15 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Internal library of functions for Aiken generator
+ *
+ * All the aikengen  specific functions, needed to implement the module
+ * logic, should go here. Never include this file from your lib.php!
+ *
  * @package    tool
  * @package aikengen
  * @copyright  2016 Jamal Aruna <it@iou.edu.gm> 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
-/**
- * Internal library of functions for Aiken generator
- *
- * All the Centers specific functions, needed to implement the module
- * logic, should go here. Never include this file from your lib.php!
- *
- * @package    Aiken generator
- * @copyright  COPYRIGHTNOTICE
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @author    Jamal Aruna it@iou.edu.gm
  */
 
 function user_has_aiken_file_name($userid) {
@@ -61,8 +54,6 @@ function user_own_aiken_question_id($userid,$fileid,$questionid) {
 	
     return $own;	
 }
-
-
 
 function get_aiken_file_name($userid) {
 	global $DB;

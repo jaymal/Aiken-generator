@@ -29,6 +29,7 @@
 require_once('../../../config.php');
 require_once('locallib.php');
 require_login();
+require_capability('tool/aikengen:view', context_system::instance());
 global $DB;
 
 $fileid = required_param('fileid', PARAM_INT);
@@ -36,7 +37,6 @@ if(!$fileid){
 	print_error("chooseafilenamefordownload",'tool_aikengen');	
 	exit;
 }
-//if(has_capability('tool/aikengen:view',context_system::instance())){
 
 if (user_own_aiken_file_id($USER->id,$fileid)){
 
@@ -59,25 +59,9 @@ if (user_own_aiken_file_id($USER->id,$fileid)){
 }
 else{
 	print_error("nodownloadpermission",'tool_aikengen');	
-	//redirect(new moodle_url($PAGE->url)); //shouldnt happen though
+
 
 }
-
-// Send file headers
-/*
- $handle = fopen("aikenfile.txt", "w");
-    fwrite($handle, $line);
-    fclose($handle);
-
-    header('Content-Type: application/octet-stream');
-    header('Content-Disposition: attachment; filename='.basename('aikenfile.txt'));
-    header('Expires: 0');
-    header('Cache-Control: must-revalidate');
-    header('Pragma: public');
-    header('Content-Length: ' . filesize('aikenfile.txt'));
-    readfile('aikenfile.txt');
-    exit;
-*/
 
 
 header("Content-type: text/plain; charset=utf-8");

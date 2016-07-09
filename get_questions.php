@@ -29,11 +29,12 @@
 require_once('../../../config.php');
 require_once('locallib.php');
 require_login();
+require_capability('tool/aikengen:view', context_system::instance());
 global $DB;
 
 $fileid = required_param('fileid', PARAM_INT);
-$admin='';
-if (user_own_aiken_file_id($USER->id,$fileid) || $admin){
+
+if (user_own_aiken_file_id($USER->id,$fileid)){
 	
 	$query = "Select * from mdl_tool_aiken_question where fileid = ?";
 	$records = $DB->get_records_sql($query, array($fileid));
@@ -49,7 +50,6 @@ if (user_own_aiken_file_id($USER->id,$fileid) || $admin){
 }
 else{
 	print_error("noviewpermission",'tool_aikengen');	
-	//redirect(new moodle_url($PAGE->url)); //shouldnt happen though
 
 }
 ?>

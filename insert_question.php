@@ -28,6 +28,7 @@
 require_once('../../../config.php');
 require_once('locallib.php');
 require_login();
+require_capability('tool/aikengen:view', context_system::instance());
 global $DB;
 
 $sesskey = optional_param('sesskey', '__notpresent__', PARAM_RAW);
@@ -37,20 +38,9 @@ $data = json_decode(file_get_contents("php://input"));
 $operation = $data->operation;
 $question = $data->full_questiontext;
 $fileid = intval($data->filename);
-$admin ='';	
 
-/*
- if(!confirm_sesskey($sesskey)){
-			 
-				$PAGE->set_title($SITE->fullname);
-				$PAGE->set_heading($SITE->fullname);
-				echo $OUTPUT->header();
-				echo $OUTPUT->confirm(get_string('logoutconfirm'), new moodle_url($PAGE->url, array('sesskey'=>sesskey())), $CFG->wwwroot.'/');
-				echo $OUTPUT->footer();
-				die;
-		 }
-		 */
-if (user_own_aiken_file_id($USER->id,$fileid) || $admin){
+
+if (user_own_aiken_file_id($USER->id,$fileid)){
 	
 	if ($operation=='Insert'){
 		
@@ -86,6 +76,5 @@ if (user_own_aiken_file_id($USER->id,$fileid) || $admin){
 }
 else{
 	print_error("noinsertupdatepermission",'tool_aikengen');	
-	//redirect(new moodle_url($PAGE->url)); //shouldnt happen though
 
 }

@@ -45,15 +45,15 @@ $PAGE->set_url($CFG->wwwroot.'/admin/tool/aikengen/index.php');
 
 //custom stylesheet
 $PAGE->requires->css(new moodle_url('styles.css'));
-//$PAGE->requires->css(new moodle_url('css/bootstrap.css'));
+
 //custom js files
 $PAGE->requires->js(new moodle_url('js/angular.min.js'),true);//true includes at header,its removal makes it load at the footer
 $PAGE->requires->js(new moodle_url('js/jquery-3.0.0.min.js'),true);
 
 if (!user_has_aiken_file_name($USER->id)){
-	$message = "You do not have an exisiting filename.Please create one first before you can add questions";
+	$message = "You do not have an existing filename.Please create one first before you can add questions";
 	$returnurl =  new moodle_url('index.php');
-    //redirect($returnurl,$message,5);
+    redirect($returnurl,$message,5);
 
 }
 
@@ -63,7 +63,7 @@ echo $OUTPUT->header();
 ?>
 <div class="container">
 	<div class="row">
-		<div  ng-app="myApp" ng-controller="aikenctrl">
+		<div  ng-app="myApp" ng-controller="aikenctrl" class="col-md-12">
 					
 			<div class="col-md-6">
 
