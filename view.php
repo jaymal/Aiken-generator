@@ -30,7 +30,7 @@ require_once($CFG->dirroot .'/lib/blocklib.php');
 require_once($CFG->dirroot .'/lib/moodlelib.php');
 require_once($CFG->libdir .'/pagelib.php');
 require_once('classes/entry_form.php');
-require_once('/lib.php');
+require_once('lib.php');
 require_once('locallib.php');
 
 require_login();

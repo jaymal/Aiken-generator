@@ -24,6 +24,9 @@
 
 
 require_once('../../../config.php');
+require_login();
+require_capability('tool/aikengen:view', context_system::instance());
+
 require_once($CFG->dirroot.'/user/profile/lib.php');
 require_once($CFG->dirroot.'/tag/lib.php');
 require_once($CFG->dirroot .'/course/lib.php');
@@ -31,13 +34,7 @@ require_once($CFG->dirroot .'/lib/blocklib.php');
 require_once($CFG->dirroot .'/lib/moodlelib.php');
 require_once($CFG->libdir .'/pagelib.php');
 require_once('classes/filename_form.php');
-require_once('/lib.php');
-require_login();
-require_capability('tool/aikengen:view', context_system::instance());
-//<script src="js/angular.min.js"></script>
-//$PAGE->requires->js('/local/aikengen/js/angular.min.js')//includeed at the footer
-//$PAGE->requires->js('/path/relative to/$cfg->dirroot', true)//true includes at header,its removal makes it load at the footer
-//$PAGE->requires->css(/path/relative to/$cfg->dirroot)
+require_once('lib.php');
 
 $PAGE->set_context(context_system::instance());
 $PAGE->set_pagelayout('course');
@@ -61,7 +58,7 @@ if ($fileform->is_cancelled()) {
  
 } else if ($fromform = $fileform->get_data()) {
 	
-		/* if(!confirm_sesskey($sesskey)){
+	 if(!confirm_sesskey($sesskey)){
 			 
 				$PAGE->set_title($SITE->fullname);
 				$PAGE->set_heading($SITE->fullname);
@@ -69,11 +66,13 @@ if ($fileform->is_cancelled()) {
 				echo $OUTPUT->confirm(get_string('logoutconfirm'), new moodle_url($PAGE->url, array('sesskey'=>sesskey())), $CFG->wwwroot.'/');
 				echo $OUTPUT->footer();
 				die;
-		 }*/
+		 }
     $record = new stdClass();
 	$record->userid  = $USER->id;
 	$record->filename =  $fromform->filename;
 	$record_entered = $DB->insert_record('tool_aiken_filename', $record);
+	
+    
 	if($record_entered){
 	    $nexturl =  new moodle_url('view.php');
 	    redirect($nexturl);
