@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -18,8 +17,7 @@
 /**
  * Strings for Aiken generator admin tool
  *
- * @package    tool
- * @package aikengen
+ * @package     tool_aikengen
  * @copyright  2016 Jamal Aruna <it@iou.edu.gm>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

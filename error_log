@@ -1,0 +1,15 @@
+[14-Jul-2016 00:10:03 America/Chicago] Default exception handler: You do not have the permission to do that - View questions Debug: 
+Error code: noviewpermission
+* line 481 of /lib/setuplib.php: moodle_exception thrown
+* line 44 of /admin/tool/aikengen/get_questions.php: call to print_error()
+
+[14-Jul-2016 00:12:47 America/Chicago] Default exception handler: You do not have the permission to do that- Add questions Debug: 
+Error code: noinsertupdatepermission
+* line 481 of /lib/setuplib.php: moodle_exception thrown
+* line 69 of /admin/tool/aikengen/insert_question.php: call to print_error()
+
+[14-Jul-2016 00:37:43 America/Chicago] Default exception handler: Please choose the file name you wish to download Debug: 
+Error code: chooseafilenamefordownload
+* line 481 of /lib/setuplib.php: moodle_exception thrown
+* line 33 of /admin/tool/aikengen/download_question.php: call to print_error()
+

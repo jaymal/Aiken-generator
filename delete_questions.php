@@ -15,16 +15,12 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package    tool
- * @package aikengen
- * @copyright  2016 Jamal Aruna <it@iou.edu.gm> 
+ * Deletes questions from the table
+ * @package     tool_aikengen
+ * @copyright  2016 Jamal Aruna <it@iou.edu.gm>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
- /**
- *deletes questions from the table
- *
- **/
 require_once('../../../config.php');
 require_once('locallib.php');
 require_login();
@@ -36,12 +32,6 @@ $fileid = $data->fileid;
 
 
 
-if (user_own_aiken_question_id($USER->id,$fileid,$id)){
-	
-	 $DB->delete_records('tool_aiken_question', array ('id' => $id)) ;
- }
-
-
-
-
-?>
+if (user_own_aiken_question_id($USER->id, $fileid, $id)) {
+    $DB->delete_records('tool_aiken_question', array ('id' => $id));
+}

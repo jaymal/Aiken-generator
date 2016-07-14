@@ -15,12 +15,11 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package    tool
- * @package aikengen
- * @copyright  2016 Jamal Aruna <it@iou.edu.gm> 
+ * Filenames are created here before questions are added
+ * @package     tool_aikengen
+ * @copyright  2016 Jamal Aruna <it@iou.edu.gm>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 
 
 require_once('../../../config.php');
@@ -43,48 +42,45 @@ $PAGE->navbar->add('Aiken generator');
 $PAGE->set_heading($SITE->fullname);
 $PAGE->set_url($CFG->wwwroot.'/admin/tool/aikengen/index.php');
 
-$PAGE->requires->js(new moodle_url('js/angular.min.js'),true);
-$PAGE->requires->js(new moodle_url('js/jquery-3.0.0.min.js'),true);
+$PAGE->requires->js(new moodle_url('js/angular.min.js'), true);
+$PAGE->requires->js(new moodle_url('js/jquery-3.0.0.min.js'), true);
 
 
 $sesskey = optional_param('sesskey', '__notpresent__', PARAM_RAW);
 
-
-//$payform = new entry_form('action',null_aray(form parameters),'method','target','ng-submit="insertdata()"');
-$fileform = new filename_form(null,null,null,null,'ng-submit="insertdata()"');
+$fileform = new filename_form(null, null, null, null, 'ng-submit="insertdata()"');
 if ($fileform->is_cancelled()) {
-    	$returnurl =  new moodle_url('index.php');
-    	redirect($returnurl);
- 
+    $returnurl = new moodle_url('index.php');
+    redirect($returnurl);
+
 } else if ($fromform = $fileform->get_data()) {
-	
-	 if(!confirm_sesskey($sesskey)){
-			 
-				$PAGE->set_title($SITE->fullname);
-				$PAGE->set_heading($SITE->fullname);
-				echo $OUTPUT->header();
-				echo $OUTPUT->confirm(get_string('logoutconfirm'), new moodle_url($PAGE->url, array('sesskey'=>sesskey())), $CFG->wwwroot.'/');
-				echo $OUTPUT->footer();
-				die;
-		 }
-    $record = new stdClass();
-	$record->userid  = $USER->id;
-	$record->filename =  $fromform->filename;
-	$record_entered = $DB->insert_record('tool_aiken_filename', $record);
-	
-    
-	if($record_entered){
-	    $nexturl =  new moodle_url('view.php');
-	    redirect($nexturl);
-    }else{
-    	echo "Unable to submit form";
-    	exit;
-    	
+
+    if (!confirm_sesskey($sesskey)) {
+
+        $PAGE->set_title($SITE->fullname);
+        $PAGE->set_heading($SITE->fullname);
+        echo $OUTPUT->header();
+        echo $OUTPUT->confirm(get_string('logoutconfirm'), new moodle_url($PAGE->url,
+                array('sesskey' => sesskey())), $CFG->wwwroot.'/');
+        echo $OUTPUT->footer();
+        die;
     }
-    	
+    $record = new stdClass();
+    $record->userid = $USER->id;
+    $record->filename = $fromform->filename;
+    $recordentered = $DB->insert_record('tool_aiken_filename', $record);
+
+
+    if ($recordentered) {
+        $nexturl = new moodle_url('view.php');
+        redirect($nexturl);
+    } else {
+        echo "Unable to submit form";
+        exit;
+
+    }
 }
 echo $OUTPUT->header();
 $fileform->display();
 
 echo $OUTPUT->footer();
-?>

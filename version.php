@@ -15,15 +15,13 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package    tool
- * @package aikengen
- * @copyright  2016 Jamal Aruna <it@iou.edu.gm> 
+ * Plugin version file
+ * @package     tool_aikengen
+ * @copyright  2016 Jamal Aruna <it@iou.edu.gm>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-
-$plugin->version  = 2014101301;
-$plugin->requires = 2012120300;
+$plugin->version  = 2016101301;
+$plugin->requires = 2015041700;
 $plugin->component = 'tool_aikengen';
-$plugin->release = '1.0 (Build: 201310110)';
+$plugin->release = '1.0 (Build: 201610110)';
 $plugin->maturity = MATURITY_STABLE;

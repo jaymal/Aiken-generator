@@ -20,43 +20,69 @@
  * All the aikengen  specific functions, needed to implement the module
  * logic, should go here. Never include this file from your lib.php!
  *
- * @package    tool
- * @package aikengen
- * @copyright  2016 Jamal Aruna <it@iou.edu.gm> 
+ * @package     tool_aikengen
+ * @copyright  2016 Jamal Aruna <it@iou.edu.gm>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+/**
+ * Checks if user has an existing file in the system
+ *
+ * @param int $userid
+ * @return bool
+ */
 function user_has_aiken_file_name($userid) {
-	global $DB;
-	
-	$user = $DB->record_exists('tool_aiken_filename', array('userid'=>$userid));
-    	return $user ;
+    global $DB;
+
+    $user = $DB->record_exists('tool_aiken_filename', array('userid' => $userid));
+    return $user;
 }
 
-function user_own_aiken_file_id($userid,$fileid) {
-	global $DB;
-	
-	$own = $DB->record_exists('tool_aiken_filename', array('userid'=>$userid,'id'=>$fileid));
-    	return $own ;
+/**
+ * Checks if user owns a file
+ *
+ * @param int $userid
+ * @param int $fileid
+ * @return bool
+ */
+function user_own_aiken_file_id($userid, $fileid) {
+    global $DB;
+
+    $own = $DB->record_exists('tool_aiken_filename', array('userid' => $userid, 'id' => $fileid));
+    return $own;
 }
 
-function user_own_aiken_question_id($userid,$fileid,$questionid) {
-	global $DB;
-	
-	$ownfile = $DB->record_exists('tool_aiken_filename', array('userid'=>$userid,'id'=>$fileid));
+/**
+ * Checks if user owns a question
+ *
+ * @param int $userid
+ * @param int $fileid
+ * @param int $questionid
+ * @return bool
+ */
+function user_own_aiken_question_id($userid, $fileid, $questionid) {
+    global $DB;
 
-	$ownquestion = $DB->record_exists('tool_aiken_question', array('id'=>$questionid,'fileid'=>$fileid));
-	
-	$own = false;
-	if($ownfile && $ownquestion){
-		$own = true ;
-	}
-	
-    return $own;	
+    $ownfile = $DB->record_exists('tool_aiken_filename', array('userid' => $userid, 'id' => $fileid));
+
+    $ownquestion = $DB->record_exists('tool_aiken_question', array('id' => $questionid, 'fileid' => $fileid));
+
+    $own = false;
+    if ($ownfile && $ownquestion) {
+        $own = true;
+    }
+
+    return $own;
 }
 
+/**
+ * Get the records of files owned by a user
+ *
+ * @param int $userid
+ * @return object
+ */
 function get_aiken_file_name($userid) {
-	global $DB;
-	$result = $DB->get_records_menu('tool_aiken_filename', array('userid'=>$userid),null,'id,filename');
-    	return $result;
+    global $DB;
+    $result = $DB->get_records_menu('tool_aiken_filename', array('userid' => $userid), null, 'id, filename');
+    return $result;
 }

@@ -15,16 +15,12 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package    tool
- * @package aikengen
- * @copyright  2016 Jamal Aruna <it@iou.edu.gm> 
+ * Insert questions into the table
+ * @package     tool_aikengen
+ * @copyright  2016 Jamal Aruna <it@iou.edu.gm>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-/**
- * insert questions into the table
- *
- **/
 require_once('../../../config.php');
 require_once('locallib.php');
 require_login();
@@ -40,41 +36,35 @@ $question = $data->full_questiontext;
 $fileid = intval($data->filename);
 
 
-if (user_own_aiken_file_id($USER->id,$fileid)){
-	
-	if ($operation=='Insert'){
-		
-		$record = new stdClass();
-		$record->question  = $question;
-		$record->option_a =  $data->option_a;
-		$record->option_b =  $data->option_b;
-		$record->option_c =  $data->option_c;
-		$record->option_d =  $data->option_d;
-		$record->option_e =  $data->option_e;
-		$record->answer =  $data->correct_answer;
-		$record->fileid =  $fileid;
-		
-		$record_entered = $DB->insert_record('tool_aiken_question', $record);
-	}
-	elseif($operation=='Update'){
-	
-		$record = new stdClass();
-		$record->id  = $data->id;
-		$record->question  = $question;
-		$record->option_a =  $data->option_a;
-		$record->option_b =  $data->option_b;
-		$record->option_c =  $data->option_c;
-		$record->option_d =  $data->option_d;
-		$record->option_e =  $data->option_e;
-		$record->answer   =  $data->correct_answer;
-		$record->fileid   =  $fileid;
-		$DB->update_record('tool_aiken_question', $record);
-	
-	
-	}
+if (user_own_aiken_file_id($USER->id, $fileid)) {
+    if ($operation == 'Insert') {
 
-}
-else{
-	print_error("noinsertupdatepermission",'tool_aikengen');	
+        $record = new stdClass();
+        $record->question = $question;
+        $record->option_a = $data->option_a;
+        $record->option_b = $data->option_b;
+        $record->option_c = $data->option_c;
+        $record->option_d = $data->option_d;
+        $record->option_e = $data->option_e;
+        $record->answer = $data->correct_answer;
+        $record->fileid = $fileid;
 
+        $recordentered = $DB->insert_record('tool_aiken_question', $record);
+    } else if ($operation == 'Update') {
+
+        $record = new stdClass();
+        $record->id  = $data->id;
+        $record->question = $question;
+        $record->option_a = $data->option_a;
+        $record->option_b = $data->option_b;
+        $record->option_c = $data->option_c;
+        $record->option_d = $data->option_d;
+        $record->option_e = $data->option_e;
+        $record->answer = $data->correct_answer;
+        $record->fileid = $fileid;
+        $DB->update_record('tool_aiken_question', $record);
+    }
+
+} else {
+    print_error("noinsertupdatepermission", 'tool_aikengen');
 }

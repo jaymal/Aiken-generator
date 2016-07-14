@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package    tool
- * @package aikengen
- * @copyright  2016 Jamal Aruna <it@iou.edu.gm> 
+ * Main page where the questions are added and file is generated
+ * @package     tool_aikengen
+ * @copyright  2016 Jamal Aruna <it@iou.edu.gm>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -43,17 +43,17 @@ $PAGE->navbar->add('Aiken generator');
 $PAGE->set_heading($SITE->fullname);
 $PAGE->set_url($CFG->wwwroot.'/admin/tool/aikengen/index.php');
 
-//custom stylesheet
+// Custom stylesheet.
 $PAGE->requires->css(new moodle_url('styles.css'));
 
-//custom js files
-$PAGE->requires->js(new moodle_url('js/angular.min.js'),true);//true includes at header,its removal makes it load at the footer
-$PAGE->requires->js(new moodle_url('js/jquery-3.0.0.min.js'),true);
+// Custom js files.
+$PAGE->requires->js(new moodle_url('js/angular.min.js'), true); // True includes at header,its removal makes it load at the footer.
+$PAGE->requires->js(new moodle_url('js/jquery-3.0.0.min.js'), true);
 
-if (!user_has_aiken_file_name($USER->id)){
-	$message = "You do not have an existing filename.Please create one first before you can add questions";
-	$returnurl =  new moodle_url('index.php');
-    redirect($returnurl,$message,5);
+if (!user_has_aiken_file_name($USER->id)) {
+    $message = "You do not have an existing filename.Please create one first before you can add questions";
+    $returnurl = new moodle_url('index.php');
+    redirect($returnurl, $message, 5);
 
 }
 
@@ -62,79 +62,77 @@ echo $OUTPUT->header();
 
 ?>
 <div class="container">
-	<div class="row">
-		<div  ng-app="myApp" ng-controller="aikenctrl" class="col-md-12">
-					
-			<div class="col-md-6">
+    <div class="row">
+        <div  ng-app="myApp" ng-controller="aikenctrl" class="col-md-12">
+
+            <div class="col-md-6">
 
 
-				<?php
-				//$payform = new entry_form('action',null_aray(form parameters),'method','target','ng-submit="insertdata()"');
+                <?php
 
-				$qform = new entry_form(null,null,null,null,'ng-submit="insertdata()",name="entryForm"');
-				$toform='';
-				$qform->set_data($toform);
-				$qform->display();
+                $qform = new entry_form(null, null, null, null, 'ng-submit = "insertdata()", name = "entryForm"');
+                $toform = '';
+                $qform->set_data($toform);
+                $qform->display();
 
-				?>
-				{{successMessage}}
-			</div>
+                ?>
+                {{successMessage}}
+            </div>
 
-			<div class="col-md-6" id="updated" >
-				 <h3> <?php echo get_string('liveupdates',TOOL_AIKENGEN_LANG); ?> </h3>
-				 <div class="col-md-12">
-							<?php 
-								$fileview = new viewfile_drop_menu_form();
-								$toform='';
-								$fileview->set_data($toform);
-								$fileview->display();
-							?>
-							 </div>
-				 <div class="live-update">
-					<table class="generaltable">
-					   <tbody>
-						<tr ng-repeat = "item in data">
-								<td class="cell c{{$index}}" style="">{{$index+1}} - {{item.question}} <br>
-									A: {{item.option_a}}<br>
-									B: {{item.option_b}}<br>
-									C: {{item.option_c}}<br>
-									D: {{item.option_d}}<br>
-									E: {{item.option_e}}<br>
-									Answer: {{item.answer}}<br><br>
-									<button ng-click="deleteQuestion(item.id,item.fileid)">Delete</button>
-									<button ng-click="editQuestion(item.id,item.question,item.option_a,item.option_b,item.option_c,
-									item.option_d,item.option_e,item.answer,item.fileid)">Edit</button>
-								</td>
-						</tr>
-					   </tbody>
-					</table>
-				
-				</div>
-				<hr />	 	
-							<div class="col-md-8">
-								<?php 
-									$fileform = new filename_drop_menu_form();
-									$toform='';
-									$fileform->set_data($toform);
-									$fileform->display();
-								?>
-							 </div>
-							  <div class="col-md-4">
-								  <a href="download_question.php?fileid={{fileid_dload}}">
-										<button><?php echo get_string('downloadfile',TOOL_AIKENGEN_LANG); ?></button>
-								  </a>
-							</div> 
-							
-			</div>
-  <!-- app js --> 
+            <div class="col-md-6" id="updated" >
+                <h3> <?php echo get_string('liveupdates', TOOL_AIKENGEN_LANG); ?> </h3>
+                    <div class="col-md-12">
+                        <?php
+                                $fileview = new viewfile_drop_menu_form();
+                                $toform = '';
+                                $fileview->set_data($toform);
+                                $fileview->display();
+                        ?>
+                    </div>
+                    <div class="live-update">
+                        <table class="generaltable">
+                            <tbody>
+                                <tr ng-repeat = "item in data">
+                                    <td class="cell c{{$index}}" style="">{{$index+1}} - {{item.question}} <br>
+                                        A: {{item.option_a}}<br>
+                                        B: {{item.option_b}}<br>
+                                        C: {{item.option_c}}<br>
+                                        D: {{item.option_d}}<br>
+                                        E: {{item.option_e}}<br>
+                                        Answer: {{item.answer}}<br><br>
+                                        <button ng-click="deleteQuestion(item.id,item.fileid)">Delete</button>
+                                        <button ng-click="editQuestion(item.id, item.question, item.option_a,
+                                        item.option_b,item.option_c,item.option_d,item.option_e,item.answer,
+                                        item.fileid)">Edit</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr />
+                    <div class="col-md-8">
+                        <?php
+                            $fileform = new filename_drop_menu_form();
+                            $toform = '';
+                            $fileform->set_data($toform);
+                            $fileform->display();
+                        ?>
+                    </div>
+                    <div class="col-md-4">
+                            <a href="download_question.php?fileid={{fileid_dload}}">
+                                          <button><?php echo get_string('downloadfile', TOOL_AIKENGEN_LANG); ?></button>
+                            </a>
+                    </div>
+
+            </div>
+  <!-- app js -->
   <script src="js/jquey-app.js"></script>
   <script src="js/app.js"></script>
-  
 
-		</div>
-	</div>
+
+        </div>
+    </div>
 </div>
 <?php
 
 echo $OUTPUT->footer();
-?>

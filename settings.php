@@ -15,15 +15,13 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package    tool
- * @subpackage aikengen
- * @copyright  2016 Jamal Aruna 
+ * Plugin admin settings
+ * @package     tool_aikengen
+ * @copyright  2016 Jamal Aruna <it@iou.edu.gm>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
-
-//$ADMIN->add('courses', new admin_externalpage('tool_aikengen', get_string('pluginname', 'tool_aikengen'), "$CFG->wwwroot/$CFG->admin/tool/aikengen/index.php", 'tool/aikengen:view'));
 
 $ADMIN->add('root', new admin_category('aikengen', 'Aiken Generator'));
 $ADMIN->add('aikengen', new admin_externalpage('tool_aikengen', get_string('createfile', 'tool_aikengen'),

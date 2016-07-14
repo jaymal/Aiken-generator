@@ -15,16 +15,16 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package    tool
- * @package aikengen
- * @copyright  2016 Jamal Aruna {it@iou.edu.gm}
+ * Plugin lib functions
+ * @package     tool_aikengen
+ * @copyright  2016 Jamal Aruna <it@iou.edu.gm>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
-define('TOOL_AIKENGEN_LANG','tool_aikengen');
-define('TOOL_AIKENGEN_FILETABLE','aikengen_filename');
-define('TOOL_AIKENGEN_QUESTION','aikengen_question');
-define('TOOL_AIKENGEN_MODNAME','aikengen');
-define('TOOL_AIKENGEN_URL','/tool/aiekngen');
-define('TOOL_AIKENGEN_CLASS','tool_aikengen');
+define('TOOL_AIKENGEN_LANG', 'tool_aikengen');
+define('TOOL_AIKENGEN_FILETABLE', 'aikengen_filename');
+define('TOOL_AIKENGEN_QUESTION', 'aikengen_question');
+define('TOOL_AIKENGEN_MODNAME', 'aikengen');
+define('TOOL_AIKENGEN_URL', '/tool/aiekngen');
+define('TOOL_AIKENGEN_CLASS', 'tool_aikengen');

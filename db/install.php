@@ -17,14 +17,16 @@
 /**
  * Post installation and migration code.
  *
- * @package    tool
- * @subpackage aikengen
- * @copyright  2016 Jamal Aruna {it@iou.edu.gm}
+ * @package     tool_aikengen
+ * @copyright  2016 Jamal Aruna <it@iou.edu.gm>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die;
 
+/**
+ * Post installation and migration code.
+ */
 function xmldb_tool_aikengen_install() {
     global $CFG, $OUTPUT, $DB;
 
