@@ -29,7 +29,7 @@ global $DB;
 
 $fileid = required_param('fileid', PARAM_INT);
 
-if (user_own_aiken_file_id($USER->id, $fileid)) {
+if (tool_aikengen_user_own_aiken_file_id($USER->id, $fileid)) {
 
     $query = "Select * from mdl_tool_aiken_question where fileid = ?";
     $records = $DB->get_records_sql($query, array($fileid));

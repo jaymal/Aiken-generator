@@ -20,7 +20,7 @@
  * @copyright  2016 Jamal Aruna <it@iou.edu.gm>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-require_once('../../../config.php');
+
 // Moodleform is defined in formslib.php.
 require_once("$CFG->libdir/formslib.php");
 
@@ -30,7 +30,7 @@ require_once("$CFG->libdir/formslib.php");
  * @copyright 2016 Jamal Aruna
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class filename_form extends moodleform {
+class tool_aikengen_filename_form extends moodleform {
     /**
      * This method adds elements to the form
      */

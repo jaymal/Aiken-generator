@@ -36,7 +36,7 @@ $question = $data->full_questiontext;
 $fileid = intval($data->filename);
 
 
-if (user_own_aiken_file_id($USER->id, $fileid)) {
+if (tool_aikengen_user_own_aiken_file_id($USER->id, $fileid)) {
     if ($operation == 'Insert') {
 
         $record = new stdClass();

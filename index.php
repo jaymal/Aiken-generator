@@ -32,7 +32,6 @@ require_once($CFG->dirroot .'/course/lib.php');
 require_once($CFG->dirroot .'/lib/blocklib.php');
 require_once($CFG->dirroot .'/lib/moodlelib.php');
 require_once($CFG->libdir .'/pagelib.php');
-require_once('classes/filename_form.php');
 require_once('lib.php');
 
 $PAGE->set_context(context_system::instance());
@@ -48,7 +47,7 @@ $PAGE->requires->js(new moodle_url('js/jquery-3.0.0.min.js'), true);
 
 $sesskey = optional_param('sesskey', '__notpresent__', PARAM_RAW);
 
-$fileform = new filename_form(null, null, null, null, 'ng-submit="insertdata()"');
+$fileform = new tool_aikengen_filename_form(null, null, null, null, 'ng-submit="insertdata()"');
 if ($fileform->is_cancelled()) {
     $returnurl = new moodle_url('index.php');
     redirect($returnurl);

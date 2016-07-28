@@ -21,7 +21,6 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once('../../../config.php');
 // Moodleform is defined in formslib.php.
 require_once("$CFG->libdir/formslib.php");
 require_once($CFG->dirroot.'/admin/tool/aikengen/locallib.php');
@@ -31,7 +30,7 @@ require_once($CFG->dirroot.'/admin/tool/aikengen/locallib.php');
  * @copyright 2016 Jamal Aruna
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class entry_form extends moodleform {
+class tool_aikengen_entry_form extends \moodleform {
     /**
      * This method adds elements to the form
      */
@@ -72,7 +71,7 @@ class entry_form extends moodleform {
         $mform->setDefault('correct_answer', null);
 
         $mform->addElement('header', 'filenameheader', get_string('filenameheader', TOOL_AIKENGEN_LANG), '');
-        $filenames = get_aiken_file_name($USER->id);
+        $filenames = tool_aikengen_get_aiken_file_name($USER->id);
         $defaultfile[''] = 'Choose one';
 
         // Array_merge does not preserve numeric keys which we need to be preserved so we use union operator instead.
@@ -99,14 +98,14 @@ class entry_form extends moodleform {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class filename_drop_menu_form extends moodleform {
+class tool_aikengen_filename_drop_menu_form extends moodleform {
     /**
      * This method adds elements to the form
      */
     public function definition() {
         global $CFG, $DB, $USER;
             $mform = $this->_form; // Don't forget the underscore!
-            $filenames = get_aiken_file_name($USER->id);
+            $filenames = tool_aikengen_get_aiken_file_name($USER->id);
             $defaultfile[''] = get_string('choosefiletodownload', TOOL_AIKENGEN_LANG);
             // Array_merge does not preserve numeric keys which we need to be preserved so we use union operator instead.
             $filenames = $defaultfile + $filenames;
@@ -129,14 +128,14 @@ class filename_drop_menu_form extends moodleform {
  * @copyright 2016 Jamal Aruna
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class viewfile_drop_menu_form extends moodleform {
+class tool_aikengen_viewfile_drop_menu_form extends moodleform {
     /**
      * This method adds elements to the form
      */
     public function definition() {
         global $CFG, $DB, $USER;
         $mform = $this->_form; // Don't forget the underscore!
-        $filenames = get_aiken_file_name($USER->id);
+        $filenames = tool_aikengen_get_aiken_file_name($USER->id);
         $defaultfile[''] = get_string('choosefiletoview', TOOL_AIKENGEN_LANG);
 
         // Array_merge does not preserve numeric keys which we need to be preserved so we use union operator instead.

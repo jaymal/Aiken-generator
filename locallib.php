@@ -31,7 +31,7 @@
  * @param int $userid
  * @return bool
  */
-function user_has_aiken_file_name($userid) {
+function tool_aikengen_user_has_aiken_file_name($userid) {
     global $DB;
 
     $user = $DB->record_exists('tool_aiken_filename', array('userid' => $userid));
@@ -45,7 +45,7 @@ function user_has_aiken_file_name($userid) {
  * @param int $fileid
  * @return bool
  */
-function user_own_aiken_file_id($userid, $fileid) {
+function tool_aikengen_user_own_aiken_file_id($userid, $fileid) {
     global $DB;
 
     $own = $DB->record_exists('tool_aiken_filename', array('userid' => $userid, 'id' => $fileid));
@@ -60,7 +60,7 @@ function user_own_aiken_file_id($userid, $fileid) {
  * @param int $questionid
  * @return bool
  */
-function user_own_aiken_question_id($userid, $fileid, $questionid) {
+function tool_aikengen_user_own_aiken_question_id($userid, $fileid, $questionid) {
     global $DB;
 
     $ownfile = $DB->record_exists('tool_aiken_filename', array('userid' => $userid, 'id' => $fileid));
@@ -81,7 +81,7 @@ function user_own_aiken_question_id($userid, $fileid, $questionid) {
  * @param int $userid
  * @return object
  */
-function get_aiken_file_name($userid) {
+function tool_aikengen_get_aiken_file_name($userid) {
     global $DB;
     $result = $DB->get_records_menu('tool_aiken_filename', array('userid' => $userid), null, 'id, filename');
     return $result;

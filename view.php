@@ -29,7 +29,7 @@ require_once($CFG->dirroot .'/course/lib.php');
 require_once($CFG->dirroot .'/lib/blocklib.php');
 require_once($CFG->dirroot .'/lib/moodlelib.php');
 require_once($CFG->libdir .'/pagelib.php');
-require_once('classes/entry_form.php');
+
 require_once('lib.php');
 require_once('locallib.php');
 
@@ -50,7 +50,7 @@ $PAGE->requires->css(new moodle_url('styles.css'));
 $PAGE->requires->js(new moodle_url('js/angular.min.js'), true); // True includes at header,its removal makes it load at the footer.
 $PAGE->requires->js(new moodle_url('js/jquery-3.0.0.min.js'), true);
 
-if (!user_has_aiken_file_name($USER->id)) {
+if (!tool_aikengen_user_has_aiken_file_name($USER->id)) {
     $message = "You do not have an existing filename.Please create one first before you can add questions";
     $returnurl = new moodle_url('index.php');
     redirect($returnurl, $message, 5);
@@ -70,7 +70,7 @@ echo $OUTPUT->header();
 
                 <?php
 
-                $qform = new entry_form(null, null, null, null, 'ng-submit = "insertdata()", name = "entryForm"');
+                $qform = new tool_aikengen_entry_form(null, null, null, null, 'ng-submit = "insertdata()", name = "entryForm"');
                 $toform = '';
                 $qform->set_data($toform);
                 $qform->display();
@@ -83,7 +83,7 @@ echo $OUTPUT->header();
                 <h3> <?php echo get_string('liveupdates', TOOL_AIKENGEN_LANG); ?> </h3>
                     <div class="col-md-12">
                         <?php
-                                $fileview = new viewfile_drop_menu_form();
+                                $fileview = new tool_aikengen_viewfile_drop_menu_form();
                                 $toform = '';
                                 $fileview->set_data($toform);
                                 $fileview->display();
@@ -112,7 +112,7 @@ echo $OUTPUT->header();
                     <hr />
                     <div class="col-md-8">
                         <?php
-                            $fileform = new filename_drop_menu_form();
+                            $fileform = new tool_aikengen_filename_drop_menu_form();
                             $toform = '';
                             $fileform->set_data($toform);
                             $fileform->display();

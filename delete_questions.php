@@ -32,6 +32,6 @@ $fileid = $data->fileid;
 
 
 
-if (user_own_aiken_question_id($USER->id, $fileid, $id)) {
+if (tool_aikengen_user_own_aiken_question_id($USER->id, $fileid, $id)) {
     $DB->delete_records('tool_aiken_question', array ('id' => $id));
 }

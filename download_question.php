@@ -34,7 +34,7 @@ if (!$fileid) {
     exit;
 }
 
-if (user_own_aiken_file_id($USER->id, $fileid)) {
+if (tool_aikengen_user_own_aiken_file_id($USER->id, $fileid)) {
 
     $filename = "aiken_".$fileid;
     $records = $DB->get_records('tool_aiken_question', array('fileid' => $fileid));
