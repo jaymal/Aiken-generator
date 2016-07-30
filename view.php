@@ -110,16 +110,8 @@ echo $OUTPUT->header();
                         </table>
                     </div>
                     <hr />
-                    <div class="col-md-8">
-                        <?php
-                            $fileform = new tool_aikengen_filename_drop_menu_form();
-                            $toform = '';
-                            $fileform->set_data($toform);
-                            $fileform->display();
-                        ?>
-                    </div>
-                    <div class="col-md-4">
-                            <a href="download_question.php?fileid={{fileid_dload}}">
+                    <div class="col-md-12">
+                            <a href="download_question.php?fileid={{viewfileid}}">
                                           <button><?php echo get_string('downloadfile', TOOL_AIKENGEN_LANG); ?></button>
                             </a>
                     </div>

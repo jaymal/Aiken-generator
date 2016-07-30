@@ -92,37 +92,6 @@ class tool_aikengen_entry_form extends \moodleform {
 }
 
 /**
- * This class defines the form for adding the filename dropdown
- *
- * @copyright 2016 Jamal Aruna
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
-class tool_aikengen_filename_drop_menu_form extends moodleform {
-    /**
-     * This method adds elements to the form
-     */
-    public function definition() {
-        global $CFG, $DB, $USER;
-            $mform = $this->_form; // Don't forget the underscore!
-            $filenames = tool_aikengen_get_aiken_file_name($USER->id);
-            $defaultfile[''] = get_string('choosefiletodownload', TOOL_AIKENGEN_LANG);
-            // Array_merge does not preserve numeric keys which we need to be preserved so we use union operator instead.
-            $filenames = $defaultfile + $filenames;
-            $mform->addElement('select', 'filedload', '', $filenames , 'ng-model="fileid_dload"');
-            $mform->setType('filedload', PARAM_INT);
-            $mform->setDefault('filedload', null);
-
-    }
-    /**
-     * Custom validation should be added here.
-     */
-    public function validation($data, $files) {
-        return array();
-    }
-}
-
-/**
  * This class defines the form for adding view file dropdown
  *
  * @copyright 2016 Jamal Aruna
